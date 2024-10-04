@@ -1,0 +1,68 @@
+#include <iostream>
+#include <map>
+#include <climits>
+#include <vector>
+using namespace std;
+
+int main() {
+    int rq, Fr;
+    cout << "Enter the Number of requests: ";
+    cin >> rq;
+
+    int page[rq];
+    for (int i = 0; i < rq; i++) {
+        cout << "Enter Page " << i + 1 << ": ";
+        cin >> page[i];
+    }
+
+    cout << "Enter the Number of frames: ";
+    cin >> Fr;
+
+    map<int, int> frame;  // map instead of unordered_map
+    vector<int> futureUse(rq, 0);
+    int pageFault = 0, pageHit = 0;
+
+    cout << "Page Replacement Process:\nPage\t\tFrames\n";
+    for (int i = 0; i < rq; i++) {
+        if (frame.find(page[i]) != frame.end()) {  // Use map's find method
+            frame[page[i]] = i;  // Update the last used index
+            pageHit++;
+        } else {
+            if (frame.size() == Fr) {
+                int maxFutureUse = INT_MIN, maxPage = -1;
+                // Traditional for loop instead of range-based loop
+                for (map<int, int>::iterator it = frame.begin(); it != frame.end(); ++it) {
+                    int futureIndex = INT_MAX;
+                    for (int j = i + 1; j < rq; j++) {
+                        if (page[j] == it->first) {
+                            futureIndex = j;
+                            break;
+                        }
+                    }
+                    if (futureIndex > maxFutureUse) {
+                        maxFutureUse = futureIndex;
+                        maxPage = it->first;
+                    }
+                }
+                frame.erase(maxPage);  // Erase the page with the max future use
+            }
+            frame[page[i]] = i;  // Insert the current page with its index
+            pageFault++;
+        }
+
+        // Print the current page and the frame contents
+        cout << page[i] << "\t\t";
+        for (map<int, int>::iterator it = frame.begin(); it != frame.end(); ++it) {
+            cout << it->first << "\t";
+        }
+        for (int j = 0; j < Fr - frame.size(); j++) {
+            cout << "X\t";  // Fill the remaining frames with "X"
+        }
+        cout << endl;
+    }
+
+    cout << "Page Fault: " << pageFault << endl;
+    cout << "Page Hit: " << pageHit << endl;
+
+    return 0;
+}
