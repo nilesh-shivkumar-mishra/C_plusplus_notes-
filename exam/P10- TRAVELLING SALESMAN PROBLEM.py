@@ -2,16 +2,6 @@ from sys import maxsize
 from itertools import permutations
 
 def travellingSalesmanProblem(graph, s):
-    """
-    Solves the Traveling Salesman Problem using brute force.
-
-    Args:
-        graph (list of lists): Adjacency matrix representing the graph.
-        s (int): Starting vertex.
-
-    Returns:
-        int: Minimum path weight.
-    """
     v = len(graph)
     vertex = [i for i in range(v) if i != s]
     min_path = maxsize
