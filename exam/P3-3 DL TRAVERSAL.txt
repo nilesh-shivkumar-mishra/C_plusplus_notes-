@@ -90,7 +90,7 @@ class DoublyLinkedList:
             print()
 
 dll = DoublyLinkedList()
-dll.insert_at_emptylist(45)
+dll.insert_in_emptylist(45)
 dll.insert_at_start(55)
 dll.insert_at_end(87)
 dll.insert_after_item(45, 99)
