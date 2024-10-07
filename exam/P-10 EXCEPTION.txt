@@ -24,8 +24,3 @@ EXCEPTION
     DBMS_OUTPUT.PUT_LINE('ERROR: Division by zero');
 END;
 /
-
---redeclared predefined Exception
-
-DECLARE
-  e_divide by zero EXC
