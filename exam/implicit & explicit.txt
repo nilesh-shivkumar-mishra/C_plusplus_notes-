@@ -1,3 +1,39 @@
+--implicit
+-- Create the table and insert data
+CREATE TABLE employees(id NUMBER PRIMARY KEY, name VARCHAR2(20), age NUMBER, address VARCHAR2(20), salary NUMBER);
+
+INSERT INTO employees(id, name, age, address, salary)
+VALUES
+(1, 'muthu', 18, 'Matunga', 25000.00),
+(2, 'shovin', 18, 'Nerul', 25000.00),
+(3, 'trishna', 18, 'Goregoan', 25000.00),
+(4, 'shivam', 18, 'Ram mandir', 200.00),
+(5, 'rahul', 17, 'Mahim', 180.00);
+
+COMMIT;
+
+-- Execute the PL/SQL block separately
+DECLARE
+  total_rows number;  -- Declare the variable here
+BEGIN
+  UPDATE employees
+  SET salary = salary + 500;
+  
+  IF sql%notfound THEN 
+    DBMS_OUTPUT.PUT_LINE('no employees selected');
+  ELSIF sql%found THEN 
+    total_rows := sql%rowcount;
+    DBMS_OUTPUT.PUT_LINE(total_rows || ' employees selected');
+  END IF;
+END;
+/
+
+-- Execute the SELECT statement separately
+SELECT * FROM employees;
+
+
+-- explicit
+
 -- Create a table to store the data
 CREATE TABLE employees (
   id NUMBER PRIMARY KEY,
@@ -33,3 +69,6 @@ BEGIN
    CLOSE c_employees; 
 END; 
 /
+
+
+
