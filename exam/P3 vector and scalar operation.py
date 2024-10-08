@@ -1,6 +1,6 @@
 
 
-#class code 01
+#INPUT A VECTOR LIST
 n=int(input("give no.of coordinates"))
 print("Give the  Frist Vector : ")
 u=[int(input("give the coordinates "))for i in range(n)]
@@ -9,7 +9,7 @@ print("Give the second vectior :")
 v=[int(input("give the coordinates"))for i in range(n)]
 print("v= ",v)
 '''
-#code02
+#ADDITION OF VECTOR
 def addvec(u, v):
     l = 0
     s = []
@@ -31,7 +31,7 @@ print("v =", v)
 print("Addition of two vectors is:", addvec(u, v))
 
 
-#code 03
+#SCALAR VECTOR
 def saclr(v):
     S=int(input("give the scalacr "))
     d=0
@@ -55,7 +55,7 @@ print("v =", v)
 print("saclar multication of the vector :",saclr(v))
 
 
-#code 04
+#DOT PRODUCT U AND V
 def dotpro(v,u):
     sum=0
     for i in range(len(v)):
