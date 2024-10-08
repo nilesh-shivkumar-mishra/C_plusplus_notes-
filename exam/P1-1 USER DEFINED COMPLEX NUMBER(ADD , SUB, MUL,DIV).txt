@@ -1,9 +1,5 @@
 #define complex number
 #method 1
-a=complex(input("Enter real nnumber "))
-print("The complex number is this ",a)
-
-#methos 2 
 a=int(input("Enter real nnumber "))
 b=int(input("Enter  imageinary number "))
 c= complex(a,b)
