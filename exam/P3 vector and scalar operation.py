@@ -8,7 +8,7 @@ print("u= ",u)
 print("Give the second vectior :")
 v=[int(input("give the coordinates"))for i in range(n)]
 print("v= ",v)
-'''
+
 #ADDITION OF VECTOR
 def addvec(u, v):
     l = 0
