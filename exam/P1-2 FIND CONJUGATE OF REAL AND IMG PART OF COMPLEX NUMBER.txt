@@ -4,7 +4,7 @@ def inputs():
     c= complex(a,b)
     print("The complex number is")
     return c;
-d1=input()
+d1=inputs()
 print(d1)
 print("The conjugate of Complex is ",d1.conjugate())
 #Extract the imageinary & number
