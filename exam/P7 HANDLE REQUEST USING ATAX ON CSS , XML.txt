@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>AJAX Example</title>
+ <style>
+ #response{
+ margin-top:20px;
+ border:1px solid #ccc;
+ padding:10px;
+ width:300px;
+ }
+ #hoverElement{
+ padding:10px;
+ background-color:lightblue;
+ display:inline-block;
+ cursor:pointer;
+ }
+ #button{
+ margin-top:20px;
+ padding:10px;
+ background-color:lightgreen;
+ cursor:pointer;
+ }
+ </style>
+ </head>
+ <body>
+ <div id="hoverElement">Mouse Over Me!</div>
+ <div id="button">click Me!</div>
+ <div id="response"></div>
+ <script>
+ function makeAjaxRequest(url){
+ const xhr= new XMLHttpRequest();
+ xhr.open('GET',url,true);
+ xhr.onload=function(){
+ if(xhr.status===200){
+ document.getElementById('response').innerText=
+ xhr.responseText;
+ }
+ else{
+ document.getElementById('response').innerText='Error:'+
+ xhr.status;
+ }
+ };
+ xhr.onerror=function(){
+ document.getElementById('response').innerText='resquest failed.';
+ };
+ xhr.send();
+ }
+ document.getElementById('hoverElement').addEventListener('mouseover',function(){
+ makeAjaxRequest('https://jsonplaceholder.typicode.com/posts/1');
+ });
+ document.getElementById('button').addEventListener('click',function(){
+ makeAjaxRequest('https://jsonplaceholder.typicode.com/posts/2');
+ });
+ </script>
+ </body>
+ </html>
