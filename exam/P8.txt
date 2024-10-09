@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Form Submission</title>
+</head>
+<body>
+<form action="process.php" method="post">
+ <label for="name">Name:</label>
+ <input type="text" id="name" name="name" required>
+ <br>
+ <label for="age">Age:</label>
+ <input type="number" id="age" name="age" required>
+ <br>
+ <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+//code2
+//Process.php file
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $name = htmlspecialchars($_POST['name']);
+ $age = (int)$_POST['age'];
+ echo "Name: " . $name . "<br>";
+ echo "Age: " . $age . "<br>";
+}
+?>
+Array.php file
+<?php
+// Sample array
+$array = [5, 10, 15, 20, 25];
+// Adding an element
+$array[] = 30;
+// Removing an element
+unset($array[1]); // Removes the second element (10)
+// Sorting the array
+sort($array);
+// Displaying the array
+echo "Array elements: " . implode(", ", $array) . "<br>";
+// Array sum
+echo "Sum of elements: " . array_sum($array) . "<br>";
+// Count of elements
+echo "Count of elements: " . count($array) . "<br>";
+?>
+
+//code3
+//Math.php file
+
+<?php
+// Factorial
+function factorial($n) {
+ return ($n == 0) ? 1 : $n * factorial($n - 1);
+}
+// Fibonacci
+function fibonacci($n) {
+ $fib = [];
+ for ($i = 0; $i < $n; $i++) {
+ $fib[$i] = ($i <= 1) ? $i : $fib[$i - 1] + $fib[$i - 2];
+ }
+ return $fib;
+}
+// Prime Numbers
+function primeNumbers($start, $end) {
+ $primes = [];
+ for ($num = $start; $num <= $end; $num++) {
+<?php
+// Factorial
+function factorial($n) {
+ return ($n == 0) ? 1 : $n * factorial($n - 1);
+}
+// Fibonacci
+function fibonacci($n) {
+ $fib = [];
+ for ($i = 0; $i < $n; $i++) {
+ $fib[$i] = ($i <= 1) ? $i : $fib[$i - 1] + $fib[$i - 2];
+ }
+ return $fib;
+}
+// Prime Numbers
+function primeNumbers($start, $end) {
+ $primes = [];
+ for ($num = $start; $num <= $end; $num++) {
+ if ($num > 1) {
+ $isPrime = true;
+ for ($i = 2; $i <= sqrt($num); $i++) {
+ if ($num % $i === 0) {
+ $isPrime = false;
+ break;
+ }
+ }
+ if ($isPrime) {
+ $primes[] = $num;
+ }
+ }
+ }
+ return $primes;
+}
+// Reverse a number
+function reverseNumber($num) {
+ return strrev((string)$num);
+}
+// Example Usage
+echo "Factorial of 5: " . factorial(5) . "<br>";
+echo "Fibonacci series (10 terms): " . implode(", ", fibonacci(10)) . "<br>";
+echo "Prime numbers between 10 and 50: " . implode(", ", primeNumbers(10, 50)) . "<br>";
+echo "Reverse of 12345: " . reverseNumber(12345) . "<br>";
+File_Operator.php
+<?php
+// File path
+$filename = "example.txt";
+// Writing to a file
+$file = fopen($filename, "w");
+if ($file) {
+ fwrite($file, "Hello, this is a test file.\n");
+ fwrite($file, "This is another line.\n");
+ fclose($file);
+ echo "Data written to the file successfully.<br>";
+} else {
+ echo "Failed to open the file for writing.<br>";
+}
+// Reading from a file
+if (file_exists($filename)) {
+ $fileContent = file_get_contents($filename);
+ echo "File contents:<br>" . nl2br(htmlspecialchars($fileContent)) . "<br>";
+} else {
+ echo "File does not exist.<br>";
+}
+?>
+?>
