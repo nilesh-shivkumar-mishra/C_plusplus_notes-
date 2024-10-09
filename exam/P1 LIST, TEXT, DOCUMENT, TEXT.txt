@@ -1,0 +1,47 @@
+//document structure tag
+<html>
+<head>
+<title> MY FRIST WEBSITE</title>
+</head>
+<body>
+<h1>Nilesh Mishra</h1>
+<h1>HELLO EVERYONE</h1>
+<p> I am Nilesh Welcomes You TO My Website</p>
+</body>
+</html>
+
+//text formats text
+<html>
+<head>
+<title>TEXT FORMATING TAG</title
+</head>
+<h1>Shovin Michel David</h1>
+<body>
+<p> This is new Paragraph
+<p><B>this is an example of a pragraph?</B></p>
+<br><B><I>This is a new sentence without a pragraph break, in bold italics.</B></I>
+<HR>
+<p><u>MY Frist page</u>
+</body>
+</html>
+
+//list tag
+<html>
+<head>
+<title>LIST TAG</title>
+</head>
+<body>
+<p> An ordered list</p>
+<ol type ="2">
+<li>HTML</li>
+<li>CSS</li>
+<li>PHP</li>
+</ol>
+<p>An unordered list</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>PHP</li>
+</ul>
+</body>
+</html>
